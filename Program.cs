@@ -18,6 +18,7 @@ namespace EmpWageCompute
 
         public static int ComputeEmployeeWage()
         {
+            Console.WriteLine("Welcome to Wage Computation Program");
             int emphrs = 0;
             int empWage = 0;
             int totalempwage = 0;
