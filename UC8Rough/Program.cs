@@ -63,7 +63,7 @@ namespace UC8Rough
             ComputeEmployeeWage("Dmart", 20, 2, 10);
             ComputeEmployeeWage("Walmart", 20, 20, 50);
             ComputeEmployeeWage("Freshmart ", 10, 6, 40);
-            ComputeEmployeeWage("Budget Foods", 20, 4, 10);
+            ComputeEmployeeWage("Budget Foods", 20, 4, 20);
         }
     }
 }
