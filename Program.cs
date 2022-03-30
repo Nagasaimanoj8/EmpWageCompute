@@ -17,16 +17,22 @@ namespace EmpWageCompute
             int empHrs = 0;
             int empWage = 0;
             Random random = new Random();
-            int empInput = random.Next(0, 2);
+            int empInput = random.Next(0, 3);
 
             if (isPresent == empInput)
             {
                 Console.WriteLine("employee present");
                 empHrs = 8;
             }
+            else if(isPresent == empInput)
+            {
+                Console.WriteLine("employee is present");
+                empHrs = 4;
+            }
             else
             {
                 Console.WriteLine("employee absent");
+                empWage = 0;
             }
             empWage = empRatePerHr * empHrs;
             Console.WriteLine("Daily Wage:{0}",empWage);
