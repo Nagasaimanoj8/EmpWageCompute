@@ -8,6 +8,7 @@ namespace EmpWageCompute
 {
     internal class Program
     {
+
         public const int FULL_TIME = 1;     //Constant variable
         public const int PART_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
@@ -15,9 +16,8 @@ namespace EmpWageCompute
         public const int MAX_WORKING_HRS = 100;
         public const int MAX_WORKING_DAYS = 20;
 
-        public static void Main(string[] args)      //Main method
+        public static int ComputeEmployeeWage()
         {
-            Console.WriteLine("Welcome To Employee Wage Computation");
             int emphrs = 0;
             int empWage = 0;
             int totalempwage = 0;
@@ -51,6 +51,16 @@ namespace EmpWageCompute
             Console.WriteLine("Total Employe Month Wage :- " + totalempwage);
             Console.WriteLine("Employee wage for " + workingDays + " days " + totalempwage);
             Console.WriteLine("Working hours " + hrs);
+            return totalempwage;
+
         }
+        public static void Main(string[] args)
+        {
+            Program.ComputeEmployeeWage();
+        }
+
+
+
     }
-}
+} 
+        
