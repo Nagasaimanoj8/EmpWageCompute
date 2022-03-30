@@ -21,7 +21,7 @@ namespace EmpWageCompute
             int empInput = random.Next(0, 3);
             switch (empInput)
             {
-                case isFulTme:
+                case isFullTime:
                     Console.WriteLine("employee is present");
                     empHrs = 8;
                     break;
