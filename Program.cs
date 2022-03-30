@@ -15,6 +15,7 @@ namespace EmpWageCompute
         // public const int MAX_WORKING_DAYS = 20;
         public static int ComputeEmployeeWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
+            Console.WriteLine("Welcome to Wage Computation Program");
             int emphrs = 0;
             int empWage = 0;
             int totalempwage = 0;
