@@ -8,58 +8,49 @@ namespace EmpWageCompute
 {
     internal class Program
     {
-        public const int isFullTime = 1;  //Constant variable
-        public const int isPartTime = 2;
-        public const int MAX_WORKING_DAYS = 20;
-        public const int EMP_RATE_PER_HR = 20;
-        public const int MAX_WORKING_HRS = 100;
+        public const int FULL_TIME = 1;     //Constant variable
+        public const int PART_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
-        public static int ComputeEmployeeWage()
-        {
-            Console.WriteLine("Welcome to the Employee Wage");
+        public const int MAX_WORKING_HRS = 100;
+        public const int MAX_WORKING_DAYS = 20;
 
-            int empHrs = 0;
+        public static void Main(string[] args)      //Main method
+        {
+            Console.WriteLine("Welcome To Employee Wage Computation");
+            int emphrs = 0;
             int empWage = 0;
-            int totalempWage = 0;
+            int totalempwage = 0;
             int hrs = 0;
-            int day = 1;
-            Random random = new Random();  //Random Class
-            //for (int day = 1; day <= MAX_WORKING_DAYS; day++)
-            while (hrs <= MAX_WORKING_HRS && day <= MAX_WORKING_DAYS)
+            int workingDays = 1;
+            Random random = new Random();       //Random Class
+            while (hrs < MAX_WORKING_HRS && workingDays <= MAX_WORKING_DAYS)
+            // for (int Day = 0; Day < NUM_OF_WORKING_DAYS; Day++)
             {
-                int empInput = random.Next(0, 3);  //Random Generate 0,1,2
-                switch (empInput) //Switch case Statement
+
+                workingDays++;
+                int EmpCheack = random.Next(0, 3);      //Random Generate 0 ,1,2
+                switch (EmpCheack)          //Switch case Statment
                 {
-                    case isFullTime:      //Employee is FullTime=1
-                        Console.WriteLine("employee is present");
-                        empHrs = 8;
+                    case FULL_TIME:         //Employee is FullTime=1
+                        emphrs = 8;
                         break;
-                    case isPartTime:    //Employee is PartTime=2
-                        empHrs = 4;
+                    case PART_TIME:          //Employee is FullTime=2
+                        emphrs = 4;
                         break;
                     default:
-                        empHrs = 0;
+                        emphrs = 0;
                         break;
                 }
-                //Calaculate empwage
-                empWage = EMP_RATE_PER_HR * empHrs;
-                //Display emp Wage
-                Console.WriteLine("Daily Wage:{0} is:{1}", empWage);
-                totalempWage += empWage;
-                day++;
-                hrs += empHrs;
-            }
-            Console.WriteLine("Total Employee Month Wage :" + totalempWage);
-            Console.WriteLine("Employee Wage For " + day + "days" + totalempWage);
-            Console.WriteLine("Working hours" + hrs);
-            return totalempWage;
-        }
-        static void Main(string[] args)
-        {
-            Program.ComputeEmployeeWage();
-        }
 
+                empWage = EMP_RATE_PER_HOUR * emphrs;            // Calculate empWage
+                hrs += emphrs;                                           //Display empwage
+                totalempwage = totalempwage + empWage;      //Calculate total employe month wage
+            }
+            Console.WriteLine("Employe Wage Per Day :- " + empWage);
+            Console.WriteLine("Total Employe Month Wage :- " + totalempwage);
+            Console.WriteLine("Employee wage for " + workingDays + " days " + totalempwage);
+            Console.WriteLine("Working hours " + hrs);
+        }
     }
 }
-
-
