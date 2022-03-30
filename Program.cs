@@ -16,14 +16,14 @@ namespace EmpWageCompute
             const int MAX_WORKING_DAYS = 20;
             const int EMP_RATE_PER_HR = 20;
             const int MAX_WORKING_HRS = 100;
-            int workingHrs = 0;
             int empHrs = 0;
             int empWage = 0;
-            int totalWage = 0;
+            int totalempWage = 0;
+            int hrs = 0;
             int day = 1;
-            Random random = new Random();
+            Random random = new Random();//Random Class
             //for (int day = 1; day <= MAX_WORKING_DAYS; day++)
-            while (day <= MAX_WORKING_DAYS && workingHrs <= MAX_WORKING_HRS)
+            while (hrs <= MAX_WORKING_HRS && day <= MAX_WORKING_DAYS)
             {
                 int empInput = random.Next(0, 3);
                 switch (empInput)
@@ -41,13 +41,12 @@ namespace EmpWageCompute
                 }
                 empWage = EMP_RATE_PER_HR * empHrs;
                 Console.WriteLine("Daily Wage:{0} is:{1}", empWage);
-                totalWage += empWage;
+                totalempWage += empWage;
                 day++;
-                workingHrs += empHrs;
+                hrs += empHrs;
             }
-            Console.WriteLine("Total wage for {0} days is :{1} and workingHrs{2}",totalWage, workingHrs);
-            Console.ReadLine(); ;
-             
+            Console.WriteLine();
+                Console.ReadLine();
             }
         }
     }
