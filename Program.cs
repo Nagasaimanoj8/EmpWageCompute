@@ -8,14 +8,16 @@ namespace EmpWageCompute
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public const int isFullTime = 1;  //Constant variable
+        public const int isPartTime = 2;
+        public const int MAX_WORKING_DAYS = 20;
+        public const int EMP_RATE_PER_HR = 20;
+        public const int MAX_WORKING_HRS = 100;
+        public const int NUM_OF_WORKING_DAYS = 20;
+        public static int ComputeEmployeeWage()
         {
             Console.WriteLine("Welcome to the Employee Wage");
-            const int isFullTime = 1;
-            const int isPartTime = 2;
-            const int MAX_WORKING_DAYS = 20;
-            const int EMP_RATE_PER_HR = 20;
-            const int MAX_WORKING_HRS = 100;
+
             int empHrs = 0;
             int empWage = 0;
             int totalempWage = 0;
@@ -47,11 +49,17 @@ namespace EmpWageCompute
                 day++;
                 hrs += empHrs;
             }
-            Console.WriteLine("Total Employee Month Wage :" +totalempWage);
+            Console.WriteLine("Total Employee Month Wage :" + totalempWage);
             Console.WriteLine("Employee Wage For " + day + "days" + totalempWage);
-            Console.WriteLine("Working hours" +hrs);
-            }
+            Console.WriteLine("Working hours" + hrs);
+            return totalempWage;
         }
+        static void Main(string[] args)
+        {
+            Program.ComputeEmployeeWage();
+        }
+
     }
+}
 
 
