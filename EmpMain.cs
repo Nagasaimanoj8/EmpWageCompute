@@ -10,18 +10,10 @@ namespace EmpWageCompute
     {
         public static void Main(String[] args)
         {
-            Program EmployeeWageBuilder = new Program("BridgeLabzs", 25, 22, 90);
-            Program flipkartEmployeeWageBuilder = new Program("Flipkart", 40, 18, 100);
-            Program amazonEmployeeWageBuilder = new Program("Amazon", 45, 24, 110);
-            Program thoughtworksEmployeeWageBuilder = new Program("ThoughtWorks", 30, 20, 120);
-            Console.WriteLine(EmployeeWageBuilder.toString());
-            EmployeeWageBuilder.ComputeEmployeeWage();
-            Console.WriteLine(flipkartEmployeeWageBuilder.toString());
-            flipkartEmployeeWageBuilder.ComputeEmployeeWage();
-            Console.WriteLine(amazonEmployeeWageBuilder.toString());
-            amazonEmployeeWageBuilder.ComputeEmployeeWage();
-            Console.WriteLine(thoughtworksEmployeeWageBuilder.toString());
-            thoughtworksEmployeeWageBuilder.ComputeEmployeeWage();
+            Program empWageBuilder = new Program();   //Create object of class
+            empWageBuilder.addComapnyEmpWage("Dmart", 20, 2, 10);  //call method
+            empWageBuilder.addComapnyEmpWage("Relicance", 10, 4, 20); //call method
+            empWageBuilder.ComputeEmployeeWage(); //call method
             Console.ReadLine();
         }
 

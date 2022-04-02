@@ -12,33 +12,38 @@ namespace EmpWageCompute
         public const int FULL_TIME = 1;     //Constant variable
         public const int PART_TIME = 2;
 
-        private string company;
-        private int empRatePerHour;
-        private int numOfWorkingDays;
-        private int maxHoursPerMonth;
-        private string totalempwage;
+        public int numofCompany = 0;
+        private Empclass[] EmployeeWageComputationProblemArray;
 
-        public Program(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        public Program()
         {
-            this.company = company;
-            this.empRatePerHour = empRatePerHour;
-            this.numOfWorkingDays = numOfWorkingDays;
-            this.maxHoursPerMonth = maxHoursPerMonth;
-
+            this.EmployeeWageComputationProblemArray = new Empclass[5];
+        }
+        public void addComapnyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+        {
+            EmployeeWageComputationProblemArray[this.numofCompany] = new Empclass(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+            numofCompany++;
         }
         public void ComputeEmployeeWage()
+        {
+            for (int i = 0; i < numofCompany; i++)
+            {
+                EmployeeWageComputationProblemArray[i].setTotalEmpWage(this.ComputeEmployeeWage(this.EmployeeWageComputationProblemArray[i]));
+                Console.WriteLine(this.EmployeeWageComputationProblemArray[i].toString());
+            }
+        }
+        private int ComputeEmployeeWage(Empclass EmployeeWageComputationProblem)
         {
             int emphrs = 0;
             int empWage = 0;
             int totalempwage = 0;
             int hrs = 0;
             int workingDays = 1;
-            Random random = new Random();       //Random Class
-            while (hrs < this.empRatePerHour && this.numOfWorkingDays <= this.maxHoursPerMonth)
-            // for (int Day = 0; Day < NUM_OF_WORKING_DAYS; Day++)
+            while (emphrs <= EmployeeWageComputationProblem.maxHoursPerMonth && workingDays < EmployeeWageComputationProblem.numOfWorkingDays)
             {
 
                 workingDays++;
+                Random random = new Random();
                 int EmpCheack = random.Next(0, 3);      //Random Generate 0 ,1,2
                 switch (EmpCheack)          //Switch case Statment
                 {
@@ -52,26 +57,16 @@ namespace EmpWageCompute
                         emphrs = 0;
                         break;
                 }
+                hrs += emphrs;
 
-                // Calculate empWage
-                hrs += emphrs;                                           //Display empwage
-                totalempwage = totalempwage + empWage;      //Calculate total employe month wage
-                empWage = empRatePerHour * emphrs;
+                Console.WriteLine("Day " + workingDays + " Emp hrs:- " + emphrs);//Display empwage
+
+                //totalempwage = totalempwage + empWage;      //Calculate total employe month wage
+                //empWage = empRatePerHour * emphrs;
+
             }
-
-            // Console.WriteLine($"Toatal Emp wage for company:- {company} is {totalempwage}");
-            Console.WriteLine("Employe Wage Per Day :- " + empWage);
-            //Console.WriteLine("Total Employe Month Wage :- " + totalempwage);
-            //  Console.WriteLine("Employee wage for " + workingDays + " days " + totalempwage);
-            Console.WriteLine("Working hours " + hrs + "\n");
-            //return totalempwage;
+            return emphrs * EmployeeWageComputationProblem.empRatePerHour;
         }
-        public string toString()
-        {
-            return "Total Emp Wage for company :- " + company + "is :- " + totalempwage;
-        }
-        
-
 
     }
 }
