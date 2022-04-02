@@ -6,23 +6,35 @@ using System.Threading.Tasks;
 
 namespace EmpWageCompute
 {
-    internal class Program
+
+    class Program
     {
         public const int FULL_TIME = 1;     //Constant variable
         public const int PART_TIME = 2;
-        // public const int EMP_RATE_PER_HOUR = 20;
-        //public const int MAX_WORKING_HRS = 100;
-        // public const int MAX_WORKING_DAYS = 20;
-        public static int ComputeEmployeeWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
+
+        private string company;
+        private int empRatePerHour;
+        private int numOfWorkingDays;
+        private int maxHoursPerMonth;
+        private string totalempwage;
+
+        public Program(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
-            Console.WriteLine("Welcome to Wage Computation Program");
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxHoursPerMonth = maxHoursPerMonth;
+
+        }
+        public void ComputeEmployeeWage()
+        {
             int emphrs = 0;
             int empWage = 0;
             int totalempwage = 0;
             int hrs = 0;
             int workingDays = 1;
             Random random = new Random();       //Random Class
-            while (hrs < empRatePerHour && numOfWorkingDays <= maxHoursPerMonth)
+            while (hrs < this.empRatePerHour && this.numOfWorkingDays <= this.maxHoursPerMonth)
             // for (int Day = 0; Day < NUM_OF_WORKING_DAYS; Day++)
             {
 
@@ -47,21 +59,19 @@ namespace EmpWageCompute
                 empWage = empRatePerHour * emphrs;
             }
 
-            Console.WriteLine($"Toatal Emp wage for company:- {company} is {totalempwage}");
+            // Console.WriteLine($"Toatal Emp wage for company:- {company} is {totalempwage}");
             Console.WriteLine("Employe Wage Per Day :- " + empWage);
             //Console.WriteLine("Total Employe Month Wage :- " + totalempwage);
             //  Console.WriteLine("Employee wage for " + workingDays + " days " + totalempwage);
             Console.WriteLine("Working hours " + hrs + "\n");
-            return totalempwage;
-
+            //return totalempwage;
         }
-        static void Main(String[] args)
+        public string toString()
         {
-            ComputeEmployeeWage("Dmart", 20, 2, 10);
-            ComputeEmployeeWage("Walmart", 20, 20, 50);
-            ComputeEmployeeWage("Freshmart ", 10, 6, 40);
-            ComputeEmployeeWage("Budget Foods", 20, 4, 10);
+            return "Total Emp Wage for company :- " + company + "is :- " + totalempwage;
         }
+        
+
+
     }
 }
-       
